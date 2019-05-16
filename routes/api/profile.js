@@ -4,3 +4,4 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 router.get('/', (req, res) => res.json({ msg: 'profile Works' }));
+module.exports = router;

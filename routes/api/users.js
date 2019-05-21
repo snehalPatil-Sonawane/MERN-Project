@@ -10,7 +10,7 @@ const jwtSecret = config.get("jwtSecret");
 
 
 // @route   POST api/users
-// @desc    Tests users route
+// @desc    create users 
 // @access  Public
 router.post(
   "/",

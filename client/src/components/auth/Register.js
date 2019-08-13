@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {setAlert} from "../../store/actions/alert";
+import {register} from "../../store/actions/auth";
+
 import PropTypes from 'prop-types'
 
 
@@ -86,7 +88,7 @@ const Register = ({setAlert }) => {
 };
 
 Register.propTypes = {
-setAlert : PropTypes.func.isRequired,
+  setAlert : PropTypes.func.isRequired,
 }
 
 export default connect(null, {setAlert})(Register);

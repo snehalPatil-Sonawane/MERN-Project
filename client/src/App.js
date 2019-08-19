@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
@@ -9,8 +9,16 @@ import Alert from "./components/layout/Alert";
 //Redux
 import {Provider} from "react-redux";
 import store from "./store/store";
-
-const App = () => (
+import setAuthToken from "./utils/setAuthToken";
+import {loadUser} from "./store/actions/auth";
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+const App = () => { 
+  useEffect(() => {
+      store.dispatch(loadUser());
+  }, []);   //adding square brackets leads to only one time execution at componentDidMount()
+  return(
   <Provider store={store}>
   <Router>
     <Fragment>
@@ -26,6 +34,6 @@ const App = () => (
     </Fragment>
   </Router>
   </Provider>
-);
+)};
 
 export default App;

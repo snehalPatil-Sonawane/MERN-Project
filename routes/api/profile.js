@@ -7,6 +7,8 @@ const passport = require("passport");
 const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Profile = require("../../models/Profile");
+const Post = require("../../models/Post");
+
 const { check, validationResult } = require("express-validator/check");
 
 // @route   GET api/profile
@@ -146,6 +148,8 @@ router.delete("/", auth, async (req, res) => {
     let profiles = await Profile.findOneAndRemove({ user: req.user.id });
     //remove user
     let user = await User.findOneAndRemove({ _id: req.user.id });
+    //remove posts
+    let post = await Post.deleteMany({user : req.user.id});
     res.json({ msg: "User removed" });
   } catch (error) {
     console.error(error.message);

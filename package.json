@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "M - MongoDb\r E - Express\r R - React\r N - node",
   "main": "server.js",
+  "engines": {
+    "node": "12.9.1"
+  },
   "scripts": {
     "start": "node server",
     "server": "nodemon server",

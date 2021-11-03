@@ -35,7 +35,7 @@
     "passport-jwt": "^4.0.0",
     "request": "^2.88.0",
     "swagger-express": "^1.0.5",
-    "validator": "^9.4.1"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
